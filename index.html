@@ -3,39 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>8826 Palmetto Falls - Real Estate Portfolio</title>
+    <title>8826 Palmetto Falls | A Valley Ranch Masterpiece</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #ffffff;
-            --text-main: #1e293b;
+            --text-main: #0f172a;
             --text-light: #64748b;
             --accent: #0f766e;
-            --border-light: #e2e8f0;
+            --border-light: #f1f5f9;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
+            font-family: 'Inter', sans-serif;
             -webkit-font-smoothing: antialiased;
-            padding-top: 60px;
+            padding-top: 70px;
         }
 
-        /* Scroll Reveal Animation Classes */
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+        /* Scroll Reveal Animation */
         .reveal {
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+            transform: translateY(30px);
+            transition: all 0.9s cubic-bezier(0.2, 0, 0.2, 1);
         }
 
         .reveal.active {
@@ -43,60 +46,57 @@
             transform: translateY(0);
         }
 
-        /* Sticky Header Navigation */
+        /* Fixed Navigation */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 15px 40px;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(8px);
+            padding: 18px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
             border-bottom: 1px solid var(--border-light);
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
         }
         
         nav h2 {
-            margin: 0;
-            color: var(--text-main);
-            font-size: 18px;
-            letter-spacing: 2px;
+            font-size: 1.1rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            font-weight: 600;
+            font-weight: 700;
         }
+
+        .nav-actions { display: flex; gap: 1.5rem; align-items: center; }
 
         .nav-cta {
-            background-color: var(--accent);
+            background-color: var(--text-main);
             color: #fff;
             text-decoration: none;
-            padding: 10px 24px;
-            border-radius: 4px;
-            font-size: 14px;
-            font-weight: 500;
+            padding: 12px 28px;
+            border-radius: 2px;
+            font-size: 0.8rem;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: background-color 0.3s ease;
+            letter-spacing: 2px;
+            transition: all 0.3s;
         }
 
-        .nav-cta:hover {
-            background-color: #0d6059;
-        }
+        .nav-cta:hover { background-color: var(--accent); }
 
-        /* Cinematic Hero Section */
+        /* Cinematic Hero */
         .hero {
             position: relative;
-            height: 75vh;
+            height: 80vh;
             width: 100%;
             overflow: hidden;
             display: flex;
-            align-items: flex-end;
-            background-color: #f8fafc;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
         }
 
         .hero video {
@@ -105,423 +105,311 @@
             left: 50%;
             min-width: 100%;
             min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translateX(-50%) translateY(-50%);
+            transform: translate(-50%, -50%);
             object-fit: cover;
             z-index: 0;
         }
 
-        /* Sleek Title Block */
-        .title-block {
-            text-align: center;
-            padding: 4rem 2rem 2rem 2rem;
-            background-color: var(--bg-color);
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5));
+            z-index: 1;
         }
 
-        .title-block h1 {
-            font-size: 2.5rem;
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
             font-weight: 300;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-            color: #000;
         }
 
-        .title-block p {
-            font-size: 1rem;
-            color: var(--text-light);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        /* Property Stats Bar */
-        .stats-bar {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 4rem;
-            padding: 2.5rem 2rem;
-            background-color: #f8fafc;
-            border-top: 1px solid var(--border-light);
-            border-bottom: 1px solid var(--border-light);
+        /* Stats Section */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            max-width: 1200px;
+            margin: -40px auto 4rem auto;
+            background: #fff;
+            position: relative;
+            z-index: 5;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+            padding: 3rem 0;
+            border-radius: 4px;
         }
 
         .stat-item {
             text-align: center;
+            border-right: 1px solid var(--border-light);
         }
 
+        .stat-item:last-child { border: none; }
+
         .stat-value {
-            font-size: 1.75rem;
+            font-size: 2rem;
             font-weight: 600;
-            color: var(--text-main);
+            font-family: 'Playfair Display', serif;
         }
 
         .stat-label {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             color: var(--text-light);
             margin-top: 0.5rem;
         }
 
-        /* Overview Section */
-        .info-container {
-            max-width: 1200px;
-            margin: 5rem auto;
+        /* Lifestyle Content */
+        .info-section {
+            max-width: 1100px;
+            margin: 6rem auto;
             padding: 0 2rem;
         }
 
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 300;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 3rem;
-            text-align: center;
-            color: #000;
-        }
-
-        .overview-grid {
+        .lifestyle-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 5rem;
+            align-items: center;
         }
 
-        .description p {
-            margin-bottom: 1.2rem;
+        .lifestyle-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .lifestyle-content p {
+            font-size: 1.1rem;
             line-height: 1.8;
             color: var(--text-light);
-            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
         }
 
-        .features-list {
-            background: #f8fafc;
-            padding: 2.5rem;
-            border-radius: 8px;
-            border: 1px solid var(--border-light);
+        .feature-box {
+            background: var(--border-light);
+            padding: 3rem;
+            border-radius: 4px;
         }
 
-        .features-list ul {
-            list-style: none;
+        .feature-box h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .features-list li {
+        .feature-box ul { list-style: none; }
+        .feature-box li {
+            padding: 12px 0;
+            border-bottom: 1px dotted #cbd5e1;
             display: flex;
             justify-content: space-between;
-            padding: 0.85rem 0;
-            border-bottom: 1px solid var(--border-light);
-            color: var(--text-light);
+            font-size: 0.9rem;
         }
 
-        .features-list li:last-child {
-            border-bottom: none;
-        }
-
-        .features-list strong {
-            color: var(--text-main);
-            font-weight: 500;
-        }
-
-        /* Filter Navigation */
-        .filter-nav {
+        /* Gallery Filter Navigation */
+        .gallery-nav {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            padding: 2rem 2rem 3rem 2rem;
-            background-color: var(--bg-color);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
             position: sticky;
-            top: 73px;
-            z-index: 10;
+            top: 71px;
+            background: #fff;
+            padding: 1.5rem;
+            z-index: 100;
             border-bottom: 1px solid var(--border-light);
         }
 
         .filter-btn {
             background: none;
             border: none;
-            padding: 0.5rem 1.5rem;
-            font-size: 0.875rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             color: var(--text-light);
             cursor: pointer;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-        }
-
-        .filter-btn:hover {
-            color: var(--text-main);
-            background-color: #f1f5f9;
+            padding: 8px 16px;
+            transition: 0.3s;
         }
 
         .filter-btn.active {
-            color: #fff;
-            background-color: var(--text-main);
+            color: var(--text-main);
+            border-bottom: 2px solid var(--accent);
         }
 
         /* Masonry Grid */
-        .gallery-container {
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .masonry-grid {
+        .masonry {
             column-count: 3;
-            column-gap: 1.5rem;
+            column-gap: 1rem;
+            padding: 0 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .masonry-item {
             break-inside: avoid;
-            margin-bottom: 1.5rem;
-            border-radius: 4px;
-            overflow: hidden;
+            margin-bottom: 1rem;
             cursor: pointer;
-            position: relative;
-            background: #f1f5f9;
-            transition: opacity 0.4s ease, transform 0.4s ease;
-        }
-
-        .masonry-item.hidden {
-            display: none;
+            overflow: hidden;
+            border-radius: 2px;
         }
 
         .masonry-item img {
             width: 100%;
             display: block;
-            transition: transform 0.6s ease;
+            transition: transform 0.8s cubic-bezier(0.2, 0, 0.2, 1);
         }
 
-        .masonry-item:hover img {
-            transform: scale(1.03);
+        .masonry-item:hover img { transform: scale(1.05); }
+
+        .hidden { display: none; }
+
+        /* Map & Neighborhood */
+        .neighborhood {
+            padding: 8rem 0;
+            background: #f8fafc;
+            text-align: center;
         }
 
-        /* Location Section */
-        .map-section {
-            padding: 4rem 2rem;
-            background-color: #fff;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .map-container {
-            border-radius: 8px;
+        .map-frame {
+            max-width: 1100px;
+            margin: 4rem auto 0 auto;
+            height: 500px;
+            background: #e2e8f0;
+            border-radius: 4px;
             overflow: hidden;
-            border: 1px solid var(--border-light);
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
         }
 
         /* Contact Section */
-        .contact-section {
-            background-color: #f8fafc;
-            padding: 6rem 2rem;
-            border-top: 1px solid var(--border-light);
+        .contact-wrap {
+            padding: 8rem 2rem;
+            background: #fff;
         }
 
         .contact-card {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
-            background: #fff;
-            padding: 3.5rem;
-            border-radius: 8px;
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
             border: 1px solid var(--border-light);
+            padding: 4rem;
+            text-align: center;
         }
 
-        .contact-card h2 {
-            text-align: center;
-            margin-bottom: 2rem;
-            font-weight: 300;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
-
-        .agent-info {
-            text-align: center;
-            margin-bottom: 2.5rem;
-            color: var(--text-light);
-        }
+        .contact-card h2 { font-size: 2.2rem; margin-bottom: 1rem; }
         
-        .agent-info h3 {
-            color: var(--text-main);
-            font-weight: 500;
-            font-size: 1.25rem;
-            margin-bottom: 0.25rem;
+        .agent-profile {
+            margin-bottom: 3rem;
         }
 
-        .input-group {
-            display: flex;
+        .agent-profile h3 { color: var(--accent); font-size: 1.4rem; }
+        .agent-profile p { color: var(--text-light); margin-top: 0.5rem; }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 1rem;
+            text-align: left;
         }
 
-        .input-group input {
-            flex: 1;
-        }
+        .full-width { grid-column: span 2; }
 
         input, textarea {
             width: 100%;
-            padding: 1rem;
-            border: 1px solid var(--border-light);
-            border-radius: 4px;
-            margin-bottom: 1rem;
+            padding: 1.2rem;
+            border: 1px solid #e2e8f0;
+            background: #f8fafc;
             font-family: inherit;
-            background-color: #f8fafc;
-            transition: border-color 0.3s;
-        }
-        
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-            background-color: #fff;
         }
 
         button[type="submit"] {
-            width: 100%;
-            padding: 1rem;
+            grid-column: span 2;
+            padding: 1.2rem;
             background: var(--text-main);
             color: #fff;
             border: none;
-            border-radius: 4px;
-            font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            font-weight: 600;
             cursor: pointer;
             transition: background 0.3s;
-            margin-top: 1rem;
         }
 
-        button[type="submit"]:hover {
-            background: var(--accent);
-        }
+        button[type="submit"]:hover { background: var(--accent); }
 
-        /* Site Footer */
-        .site-footer {
-            background-color: #0f172a;
+        /* Footer */
+        footer {
+            background: #0f172a;
             color: #94a3b8;
+            padding: 4rem 2rem;
             text-align: center;
-            padding: 3rem 2rem;
-            font-size: 0.875rem;
-            line-height: 1.8;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
         }
 
-        .site-footer p {
-            margin: 0.25rem 0;
-        }
-
-        /* Lightbox Overlay */
+        /* Lightbox */
         .lightbox {
             display: none;
             position: fixed;
-            z-index: 2000;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(15, 23, 42, 0.98);
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.98);
+            z-index: 5000;
             align-items: center;
             justify-content: center;
             flex-direction: column;
         }
 
-        .lightbox-img {
-            max-width: 90%;
-            max-height: 85vh;
-            object-fit: contain;
-            box-shadow: 0 0 30px rgba(0,0,0,0.3);
-            user-select: none;
-        }
+        .lightbox img { max-width: 90%; max-height: 80vh; object-fit: contain; }
+        .close-lb { position: absolute; top: 30px; right: 40px; color: #fff; font-size: 2rem; cursor: pointer; }
 
-        .close-btn {
-            position: absolute;
-            top: 30px;
-            right: 40px;
-            color: white;
-            font-size: 40px;
-            font-weight: 300;
-            cursor: pointer;
-            transition: color 0.2s;
-            line-height: 1;
-            z-index: 1001;
-        }
-
-        .close-btn:hover { color: var(--text-light); }
-
-        .nav-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            color: white;
-            font-size: 40px;
-            font-weight: 300;
-            cursor: pointer;
-            background: transparent;
-            border: none;
-            padding: 20px;
-            transition: transform 0.2s;
-            z-index: 1001;
-        }
-
-        .nav-btn:hover { transform: translateY(-50%) scale(1.1); }
-        .prev-btn { left: 30px; }
-        .next-btn { right: 30px; }
-
-        .lightbox-counter {
-            position: absolute;
-            bottom: 30px;
-            color: #94a3b8;
-            font-size: 0.875rem;
-            letter-spacing: 2px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .masonry-grid { column-count: 2; }
-            .hero { height: 60vh; }
-        }
-
-        @media (max-width: 768px) {
-            .overview-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-            .stats-bar { gap: 2rem; }
-            .input-group { flex-direction: column; gap: 0; }
-        }
-
-        @media (max-width: 640px) {
-            .masonry-grid { column-count: 1; }
-            .title-block h1 { font-size: 1.75rem; }
-            .filter-nav { padding: 1rem 1rem 2rem 1rem; top: 60px; }
-            .filter-btn { padding: 0.5rem 1rem; font-size: 0.75rem; }
-            .hero { height: 50vh; }
-            .nav-btn { padding: 10px; font-size: 30px; }
-            .close-btn { top: 20px; right: 20px; }
-            .contact-card { padding: 2rem 1.5rem; }
-            
-            nav { padding: 15px 20px; }
-            nav h2 { font-size: 14px; }
-            .nav-cta { padding: 8px 16px; font-size: 12px; }
+        @media (max-width: 900px) {
+            .hero h1 { font-size: 2.5rem; }
+            .stats-container { grid-template-columns: repeat(2, 1fr); margin: 2rem; }
+            .lifestyle-grid { grid-template-columns: 1fr; }
+            .masonry { column-count: 2; }
+            form { grid-template-columns: 1fr; }
+            .full-width { grid-column: auto; }
+            button[type="submit"] { grid-column: auto; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <h2>Exclusive Listing</h2>
-        <a href="#contact" class="nav-cta">Request a Tour</a>
+        <h2>8826 Palmetto Falls</h2>
+        <div class="nav-actions">
+            <a href="#contact" class="nav-cta">Request a Tour</a>
+        </div>
     </nav>
 
     <header class="hero">
         <video autoplay loop muted playsinline>
             <source src="Video_Generation_Walking_Up_To_Door.mp4" type="video/mp4">
         </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p>Exclusive San Antonio Residence</p>
+            <h1>Palmetto Falls</h1>
+        </div>
     </header>
 
-    <div class="title-block reveal">
-        <h1>8826 Palmetto Falls</h1>
-        <p>San Antonio, TX</p>
-    </div>
-
-    <div class="stats-bar reveal">
+    <div class="stats-container reveal">
         <div class="stat-item">
             <div class="stat-value">3</div>
             <div class="stat-label">Bedrooms</div>
@@ -532,235 +420,152 @@
         </div>
         <div class="stat-item">
             <div class="stat-value">2,241</div>
-            <div class="stat-label">Square Feet</div>
+            <div class="stat-label">Sq. Ft.</div>
         </div>
         <div class="stat-item">
-            <div class="stat-value">2016</div>
-            <div class="stat-label">Year Built</div>
+            <div class="stat-value">$325k</div>
+            <div class="stat-label">Price</div>
         </div>
     </div>
 
-    <div class="info-container reveal">
-        <h2 class="section-title">Property Overview</h2>
-        <div class="overview-grid">
-            <div class="description">
-                <p>Welcome to this beautifully maintained 3 bedroom, 2.5 bath two-story home that effortlessly blends comfort and convenience. Step inside to an open, light-filled layout with clean finishes throughout.</p>
-                <p>Upstairs, you will find a spacious loft—perfect for a second living area, playroom, or home office setup. The interior has been thoughtfully cared for, providing a bright, modern canvas that is completely move-in ready.</p>
-                <p>The kitchen and living spaces flow seamlessly out to the extended, screened-in deck, giving you the absolute ideal spot for morning coffee, evening dinners, or entertaining guests year-round.</p>
+    <section class="info-section">
+        <div class="lifestyle-grid">
+            <div class="lifestyle-content reveal">
+                <h2>Designed for Seamless <br> Indoor-Outdoor Living</h2>
+                <p>Welcome to 8826 Palmetto Falls, where modern comfort meets tranquil community living. This meticulously maintained residence features an open, light-filled layout that transitions perfectly from intimate family dinners to grand entertaining.</p>
+                <p>Upstairs, a versatile loft offers the perfect space for a creative home office or a dedicated media room, while the primary suite serves as a quiet retreat at the end of the day.</p>
+                <p>But the true centerpiece is the extended, screened-in deck—your private oasis for morning espresso or hosting sunset dinners in the breeze.</p>
             </div>
-            <div class="features-list">
+            <div class="feature-box reveal">
+                <h3>Key Features</h3>
                 <ul>
-                    <li><strong>Property Type</strong> <span>Single Family</span></li>
-                    <li><strong>Lot Size</strong> <span>5,227 Sq. Ft.</span></li>
                     <li><strong>Community</strong> <span>Valley Ranch</span></li>
+                    <li><strong>Lot Size</strong> <span>5,227 Sq. Ft.</span></li>
+                    <li><strong>Outdoor</strong> <span>Screened Deck</span></li>
                     <li><strong>Garage</strong> <span>2-Car Attached</span></li>
-                    <li><strong>Outdoor Space</strong> <span>Screened Deck</span></li>
-                    <li><strong>Cooling/Heating</strong> <span>Central Air / Gas</span></li>
+                    <li><strong>Heating</strong> <span>Natural Gas</span></li>
+                    <li><strong>Year Built</strong> <span>2016</span></li>
                 </ul>
             </div>
         </div>
-    </div>
+    </section>
 
-    <nav class="filter-nav reveal" id="filterNav">
+    <div class="gallery-nav reveal">
         <button class="filter-btn active" data-filter="all">All Photos</button>
         <button class="filter-btn" data-filter="exterior">Exterior</button>
         <button class="filter-btn" data-filter="living">Living & Dining</button>
         <button class="filter-btn" data-filter="kitchen">Kitchen</button>
         <button class="filter-btn" data-filter="beds-baths">Beds & Baths</button>
-    </nav>
-
-    <div class="gallery-container reveal">
-        <div class="masonry-grid" id="masonryGrid">
-            
-            <div class="masonry-item exterior"><img src="front-entry-1.jpg" alt="Front Entry"></div>
-            <div class="masonry-item exterior"><img src="front-entry-2.jpg" alt="Front Entry"></div>
-            <div class="masonry-item exterior"><img src="front-entry-3.jpg" alt="Front Entry"></div>
-            <div class="masonry-item exterior"><img src="front-entry-4.jpg" alt="Front Entry"></div>
-            <div class="masonry-item exterior"><img src="entry-1.jpg" alt="Entry"></div>
-            <div class="masonry-item exterior"><img src="entry-2.jpg" alt="Entry"></div>
-            <div class="masonry-item exterior"><img src="patio-1.jpg" alt="Patio"></div>
-            <div class="masonry-item exterior"><img src="patio-2.jpg" alt="Patio"></div>
-            <div class="masonry-item exterior"><img src="back-yard-1.jpg" alt="Backyard"></div>
-            <div class="masonry-item exterior"><img src="back-yard-2.jpg" alt="Backyard"></div>
-            <div class="masonry-item exterior"><img src="back-yard-3.jpg" alt="Backyard"></div>
-
-            <div class="masonry-item living"><img src="living-room-1.jpg" alt="Living Room"></div>
-            <div class="masonry-item living"><img src="living-room-2.jpg" alt="Living Room"></div>
-            <div class="masonry-item living"><img src="living-room-3.jpg" alt="Living Room"></div>
-            <div class="masonry-item living"><img src="living-room-4.jpg" alt="Living Room"></div>
-            <div class="masonry-item living"><img src="living-room-5.jpg" alt="Living Room"></div>
-            <div class="masonry-item living"><img src="dining-1.jpg" alt="Dining Room"></div>
-            <div class="masonry-item living"><img src="dining-2.jpg" alt="Dining Room"></div>
-            <div class="masonry-item living"><img src="playroom-1.jpg" alt="Playroom"></div>
-            <div class="masonry-item living"><img src="playroom-2.jpg" alt="Playroom"></div>
-
-            <div class="masonry-item kitchen"><img src="kitchen-1.jpg" alt="Kitchen"></div>
-            <div class="masonry-item kitchen"><img src="Kitchen-2.jpg" alt="Kitchen"></div>
-            <div class="masonry-item kitchen"><img src="kitchen-3.jpg" alt="Kitchen"></div>
-            <div class="masonry-item kitchen"><img src="kitchen-4.jpg" alt="Kitchen"></div>
-
-            <div class="masonry-item beds-baths"><img src="primary-1.jpg" alt="Primary Bedroom"></div>
-            <div class="masonry-item beds-baths"><img src="primary-2.jpg" alt="Primary Bedroom"></div>
-            <div class="masonry-item beds-baths"><img src="primary-3.jpg" alt="Primary Bedroom"></div>
-            <div class="masonry-item beds-baths"><img src="primary-4.jpg" alt="Primary Bedroom"></div>
-            <div class="masonry-item beds-baths"><img src="primary-bath-1.jpg" alt="Primary Bathroom"></div>
-            <div class="masonry-item beds-baths"><img src="primary-bath-2.jpg" alt="Primary Bathroom"></div>
-            <div class="masonry-item beds-baths"><img src="primary-closet.jpg" alt="Primary Closet"></div>
-            <div class="masonry-item beds-baths"><img src="bed-2.jpg" alt="Bedroom"></div>
-            <div class="masonry-item beds-baths"><img src="bed-3.jpg" alt="Bedroom"></div>
-            <div class="masonry-item beds-baths"><img src="downstairs-bath.jpg" alt="Downstairs Bath"></div>
-            <div class="masonry-item beds-baths"><img src="upstairs-bath.jpg" alt="Upstairs Bath"></div>
-            <div class="masonry-item beds-baths"><img src="laundry.jpg" alt="Laundry Room"></div>
-            
-        </div>
     </div>
 
-    <div class="map-section reveal">
-        <h2 class="section-title">Neighborhood & Location</h2>
-        <div class="map-container">
-            <iframe src="https://www.google.com/maps?q=8826+Palmetto+Falls,+San+Antonio,+TX+78254&output=embed" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
+    <div class="masonry reveal">
+        <div class="masonry-item exterior"><img src="front-entry-1.jpg" alt="Home Front"></div>
+        <div class="masonry-item exterior"><img src="front-entry-2.jpg" alt="Entry Detail"></div>
+        <div class="masonry-item exterior"><img src="patio-1.jpg" alt="Screened Deck"></div>
+        <div class="masonry-item living"><img src="living-room-1.jpg" alt="Living Space"></div>
+        <div class="masonry-item kitchen"><img src="kitchen-1.jpg" alt="Gourmet Kitchen"></div>
+        <div class="masonry-item beds-baths"><img src="primary-1.jpg" alt="Primary Suite"></div>
+        <div class="masonry-item exterior"><img src="back-yard-1.jpg" alt="Backyard"></div>
+        <div class="masonry-item living"><img src="dining-1.jpg" alt="Dining Area"></div>
+        <div class="masonry-item living"><img src="playroom-2.jpg" alt="Loft Area"></div>
+        <div class="masonry-item kitchen"><img src="Kitchen-2.jpg" alt="Kitchen View"></div>
+        <div class="masonry-item beds-baths"><img src="primary-bath-1.jpg" alt="Bath"></div>
+        <div class="masonry-item beds-baths"><img src="primary-closet.jpg" alt="Walk-in Closet"></div>
     </div>
 
-    <div id="contact" class="contact-section reveal">
-        <div class="contact-card">
-            <h2>Interested in this property?</h2>
-            <div class="agent-info">
+    <section class="neighborhood reveal">
+        <h2 class="section-title">The Neighborhood</h2>
+        <p style="color: var(--text-light); max-width: 600px; margin: 0 auto;">Located in the sought-after Valley Ranch community, 8826 Palmetto Falls is just moments away from top-rated schools, parks, and San Antonio's premier shopping and dining.</p>
+        <div class="map-frame">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3472.966456073747!2d-98.74900402345511!3d29.48810784534882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865c43d78c000001%3A0x6790a3683f23a1!2s8826%20Palmetto%20Fls%2C%20San%20Antonio%2C%20TX%2078254!5e0!3m2!1sen!2sus!4v1712613500000!5m2!1sen!2sus" 
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-wrap">
+        <div class="contact-card reveal">
+            <h2>Schedule a Viewing</h2>
+            <div class="agent-profile">
                 <h3>Cindy Bachicha</h3>
-                <p>Listing Agent | TREC #612843</p>
                 <p>San Antonio Portfolio KW RE</p>
-                <p style="margin-top: 5px; color: var(--accent);">(210) 218-7681</p>
+                <p>TREC #612843 | (210) 218-7681</p>
             </div>
-            
             <form action="https://formspree.io/f/xkopeylk" method="POST">
-                <div class="input-group">
-                    <input type="text" name="firstName" placeholder="First Name" required>
-                    <input type="text" name="lastName" placeholder="Last Name" required>
-                </div>
+                <input type="text" name="name" placeholder="Full Name" required>
                 <input type="email" name="email" placeholder="Email Address" required>
-                <input type="tel" name="phone" placeholder="Phone Number" required>
-                <textarea name="message" rows="4" placeholder="I would like to schedule a tour or learn more about 8826 Palmetto Falls..." required></textarea>
-                <button type="submit">Request Information</button>
+                <input type="tel" name="phone" placeholder="Phone Number" class="full-width">
+                <textarea name="message" placeholder="I'm interested in a tour..." rows="4" class="full-width"></textarea>
+                <button type="submit">Send Inquiry</button>
             </form>
         </div>
-    </div>
+    </section>
 
-    <footer class="site-footer">
-        <p>&copy; 2026 San Antonio Portfolio KW RE. All rights reserved.</p>
-        <p>Listing Agent: Cindy Bachicha | TREC #612843</p>
+    <footer>
         <p>Equal Housing Opportunity</p>
+        <p>© 2026 8826 Palmetto Falls. All rights reserved.</p>
+        <p>Listing Agent: Cindy Bachicha | San Antonio, TX</p>
     </footer>
 
-    <div id="lightbox" class="lightbox">
-        <span class="close-btn" onclick="closeLightbox()">&times;</span>
-        <button class="nav-btn prev-btn" onclick="changeImage(-1)">&#10094;</button>
-        <img id="lightbox-main-img" class="lightbox-img" src="" alt="Full Screen Image">
-        <button class="nav-btn next-btn" onclick="changeImage(1)">&#10095;</button>
-        <div id="lightbox-counter" class="lightbox-counter"></div>
+    <div id="lightbox" class="lightbox" onclick="closeLB()">
+        <span class="close-lb">&times;</span>
+        <img id="lb-img" src="">
     </div>
 
     <script>
-        // --- Scroll Reveal Animation Logic ---
+        // --- Scroll Reveal Logic ---
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100; // Adjusts when the animation triggers
-                
-                if (elementTop < windowHeight - elementVisible) {
+                if (elementTop < windowHeight - 100) {
                     reveals[i].classList.add("active");
                 }
             }
         }
         window.addEventListener("scroll", reveal);
-        reveal(); // Trigger on load
+        reveal();
 
         // --- Filtering Logic ---
         const filterBtns = document.querySelectorAll('.filter-btn');
-        const masonryItems = document.querySelectorAll('.masonry-item');
+        const items = document.querySelectorAll('.masonry-item');
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 filterBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
+                const filter = btn.getAttribute('data-filter');
 
-                const filterValue = btn.getAttribute('data-filter');
-
-                masonryItems.forEach(item => {
-                    if (filterValue === 'all') {
+                items.forEach(item => {
+                    if (filter === 'all' || item.classList.contains(filter)) {
                         item.classList.remove('hidden');
                     } else {
-                        if (item.classList.contains(filterValue)) {
-                            item.classList.remove('hidden');
-                        } else {
-                            item.classList.add('hidden');
-                        }
+                        item.classList.add('hidden');
                     }
                 });
-
-                updateVisibleImagesForLightbox();
             });
         });
 
         // --- Lightbox Logic ---
-        let visibleImages = [];
-        let currentLightboxIndex = 0;
+        const imgs = document.querySelectorAll('.masonry-item img');
+        const lb = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lb-img');
 
-        function updateVisibleImagesForLightbox() {
-            const activeElements = document.querySelectorAll('.masonry-item:not(.hidden) img');
-            visibleImages = Array.from(activeElements).map(img => img.src);
-            
-            activeElements.forEach((img, index) => {
-                img.parentElement.onclick = () => openLightbox(index);
-            });
-        }
-
-        function openLightbox(index) {
-            currentLightboxIndex = index;
-            renderLightboxContent();
-            document.getElementById('lightbox').style.display = 'flex';
-            document.body.style.overflow = 'hidden'; 
-        }
-
-        function closeLightbox() {
-            document.getElementById('lightbox').style.display = 'none';
-            document.body.style.overflow = 'auto'; 
-        }
-
-        function changeImage(direction) {
-            currentLightboxIndex += direction;
-            if (currentLightboxIndex >= visibleImages.length) {
-                currentLightboxIndex = 0;
-            } else if (currentLightboxIndex < 0) {
-                currentLightboxIndex = visibleImages.length - 1;
-            }
-            renderLightboxContent();
-        }
-
-        function renderLightboxContent() {
-            const lightboxImg = document.getElementById('lightbox-main-img');
-            const counter = document.getElementById('lightbox-counter');
-            lightboxImg.src = visibleImages[currentLightboxIndex];
-            counter.innerText = `${currentLightboxIndex + 1} / ${visibleImages.length}`;
-        }
-
-        window.onload = updateVisibleImagesForLightbox;
-
-        document.addEventListener('keydown', (e) => {
-            const lightbox = document.getElementById('lightbox');
-            if (lightbox.style.display === 'flex') {
-                if (e.key === 'Escape') closeLightbox();
-                if (e.key === 'ArrowLeft') changeImage(-1);
-                if (e.key === 'ArrowRight') changeImage(1);
-            }
+        imgs.forEach(img => {
+            img.onclick = (e) => {
+                e.stopPropagation();
+                lbImg.src = img.src;
+                lb.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            };
         });
 
-        document.getElementById('lightbox').addEventListener('click', (e) => {
-            if (e.target.id === 'lightbox') {
-                closeLightbox();
-            }
-        });
+        function closeLB() {
+            lb.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
     </script>
 </body>
 </html>
